@@ -1,0 +1,2 @@
+sap.ui.define(["zfiotelselkampanyagiris/zfiotelselkampanyagiris/controller/Kampanya.controller"],function(n){"use strict";QUnit.module("Kampanya Controller");QUnit.test("I should test the Kampanya controller",function(t){var a=new n;a.onInit();t.ok(a)})});
+//# sourceMappingURL=Kampanya.controller.js.map

@@ -1,0 +1,88 @@
+<mvc:View controllerName="zfiotelselkampanyagiris.zfiotelselkampanyagiris.controller.Kampanya"
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true" 
+    xmlns:form="sap.ui.layout.form" 
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Page id="page" title="Kampanya,Duyuru Giriş Ekranı">
+        <VBox id="idVBox1" width="100%">
+            <form:SimpleForm id="idSimple1"
+                class="sapUiResponsiveMargin"
+                columnsL="1"
+                columnsM="1"
+                editable="true"
+                labelSpanL="2"
+                labelSpanM="2"
+                layout="ResponsiveGridLayout"
+                width="auto">
+                <form:content>
+                    <Label id="idLbl1" text="Başlangıç Tarihi" />
+                    <!-- <DatePicker
+                    required="true"
+                    id="idDate1"
+                    width="auto" 
+                    placeholder="Başlangıç Tarihi Giriniz..."
+                    valueFormat="ddMMyyyy"
+                   
+                    />                     -->
+                    <DatePicker id="idDate1" width="auto" displayFormat="medium" required="true"
+                        value="{path:'',type:'sap.ui.model.type.DateTime', formatOptions:{pattern:'dd-MM-yyyy'} }"
+                        placeholder="Başlangıç Tarihi Giriniz..."
+                        valueStateText="Geçersiz Giriş" enabled="true" visible="true"
+                        /> 
+                    <Label id="idLbl2" text="Bitiş Tarihi" />
+                    <DatePicker id="idDate2" value="{path:'', type:'sap.ui.model.type.DateTime', formatOptions:{pattern:'dd-MM-yyyy'} }"
+                        width="auto" displayFormat="medium" required="true"
+                        placeholder="Bitiş Tarihi Giriniz..."
+                        valueStateText="Geçersiz Giriş" enabled="true" visible="true"
+                        
+                    />
+                    <Label id="idLbl3" text="" />
+                    <TextArea id="idTxtArea1" value="" growing="true" width="100%" placeholder="Duyuru, Kampanya girişi yapınız..."/>
+                    <Label id="idLbl4" text="" />
+                    <Button id="idBtn1" text="Kaydet" press="onSave" type="Accept" width="20%" />
+                </form:content>
+            </form:SimpleForm>
+        </VBox>
+
+        <VBox id="idVBox2" width="100%">
+            <form:SimpleForm id="idSimple2"
+                class="sapUiResponsiveMargin"
+                columnsL="1"
+                columnsM="1"
+                editable="true"
+                labelSpanL="2"
+                labelSpanM="2"
+                layout="ResponsiveGridLayout"
+                width="auto">
+                <form:content>
+
+                <List
+                id="_IDGenList2"
+                items="{/KampanyaSet}"
+                mode="Delete"
+                delete="onKisiSil" 
+                >
+                <items>
+                <!-- <StandardListItem id="_IDObjectList2"
+                    title="Kampanya No : {KampanyaNo}" 
+                    wrapping="true" type="Active"
+                    description="{Text}"   
+                    info="{Begda} - {Endda}">
+                </StandardListItem>    -->
+                <FeedListItem id="_IDObjectList2" 
+                icon="sap-icon://marketing-campaign"   
+                text="{Text}"
+                sender="Kampanya No {KampanyaNo}" 
+                maxCharacters="2000"
+                info="{Begda} - {Endda}"
+                >
+            </FeedListItem>  
+                </items>
+                </List> 
+                </form:content>
+            </form:SimpleForm>
+        </VBox>
+
+    </Page>
+</mvc:View> 
